@@ -15,6 +15,8 @@
                         <a onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
                            class="btn btn-primary">Logout</a>
+                        <a href="/"
+                           class="btn btn-success">Add job</a>
                     </div>
                 </div>
             </div>
