@@ -33,7 +33,9 @@
                     <h3>{{$job->title}}</h3>
                     <h4>${{$job->price}}</h4>
                     <p>{{$job->description}}</p>
-                    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Apply</button>
+                    @if (Auth::user())
+                        <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Apply</button>
+                    @endif
                 </div>
             </div>
             <hr>
@@ -62,11 +64,11 @@
         $(document).ready(function () {
             $("#search-job").keyup(function (e) {
                 if (e.keyCode == 13) {
-                    window.open("/search-job?search=" + $("#search-job").val(), "_self")
+                    window.open("/?search=" + $("#search-job").val(), "_self")
                 }
             });
             $("#button-search").click(function () {
-                window.open("/search-job?search=" + $("#search-job").val(), "_self")
+                window.open("/?search=" + $("#search-job").val(), "_self")
             });
         });
     </script>

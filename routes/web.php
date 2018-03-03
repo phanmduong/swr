@@ -13,6 +13,5 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/search-job', 'HomeController@searchJob')->name('home');
-Route::get('/profile', 'HomeController@profile')->name('home');
+Route::get('/', 'SearchController@searchJob');
+Route::get('/profile', 'HomeController@profile');
