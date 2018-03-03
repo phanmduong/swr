@@ -9,7 +9,7 @@
                         <input type="text" class="form-control" id="search-job" placeholder="Search"
                                value="{{$search ? $search : ""}}">
                         <span class="input-group-addon">
-                        <button type="submit">
+                        <button id="button-search">
                             <i class="fas fa-search"></i>
                         </button>
                     </span>
@@ -65,6 +65,9 @@
                     window.open("/search-job?search=" + $("#search-job").val(), "_self")
                 }
             });
-        })
+            $("#button-search").click(function () {
+                window.open("/search-job?search=" + $("#search-job").val(), "_self")
+            });
+        });
     </script>
 @endsection
