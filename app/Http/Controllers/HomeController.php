@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +26,17 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function searchJob(){
-        return view('search');
+
+    public function searchJob(Request $request)
+    {
+
+        if ($request->search) {
+            $jobs = Job::where('title', 'like', '%' . $request->search . '%')
+                ->orWhere('price', 'like', '%' . $request->search . '%')->get();
+        } else {
+            $jobs = Job::all();
+        }
+
+        return view('search', ['jobs' => $jobs, 'search' => $request->search]);
     }
 }
