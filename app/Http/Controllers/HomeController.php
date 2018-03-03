@@ -39,4 +39,9 @@ class HomeController extends Controller
 
         return view('search', ['jobs' => $jobs, 'search' => $request->search]);
     }
+
+    public function profile()
+    {
+        return view('profile');
+    }
 }
